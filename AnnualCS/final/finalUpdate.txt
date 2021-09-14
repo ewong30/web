@@ -1,0 +1,3 @@
+Same as before! Everything should now be organized into neater folders for navigation in the future. 
+Of course, there might now be an issue with the path in order to get to the established HTML site,
+but all of the content itself, including HTML, Python, and pngs should be here.
