@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+	<link href = "final-rpsstyler.css" rel="stylesheet">
+	<title> Smarter RPS | Home </title>
+</head>
+
+<body class="website">
+	<div class="navbar">
+	<a class="active" href="./final.html">Home</a>
+	<div class="dropdown">
+		<button class="dropbtn"> About the Project
+    		<i style="fa fa-caret-down"></i>
+		</button>
+			<div class="dropdown-content">
+				<a class="topdownli" href="./final.html#Overview">An Overview</a>
+				<a class="topdownli" href="./final.html#Use">How do I use the 				project?</a>
+				<a class="topdownli" href="./final.html#Work">How does the project 				work?</a>
+				<a class="topdownli" href="./final.html#Files">The Files</a>
+				<a class="topdownli" href="./final.html#Resources">Online Resources 				and Statistics</a>
+       	 		<a href="./final.html#Bugs">Files, Resources, and Bugs</a>
+			</div>
+	</div>
+</div>
+
+<br>
+
+<div class="intro">
+	<div><h1 class="headstyle-title-2">A (Slightly Smarter) Game of Rock Paper 	Scissors</h1></div>
+	<div><h3 class="headstyle-name">Ethan Wong, Period 4</h3></div>
+</div>
+
+<img src="rps.png"  class="center" style="width: 630px; height: 350px;">
+
+<a href="Python_Project.py" class="project-link" download>
+  A download link for the project
+</a>
+<br>
+<a href="rpsdataset.txt" class="project-link" download>
+  A download link for the text (needed to run the program)
+</a>
+	
+<br>
+	
+<ul class="headstyle-title" id="Overview"> <b> An Overview of the Game </b> </ul>
+	<div class="container-1">
+	<div><img src="rpswheel.png"  class="imgwrapl" style="width: 240px; height: 	232px;"></div>
+	<div><p class="pstyle0"> 
+		<span class="tab"> </span> Welcome to a Slightly Smarter game of Rock Paper Scissors! The whole point of this project was to create a python program that could run a semi-intelligent game of Rock Paper Scissors using dictionaries, probabilities, and inputs. This means that, over time, the player using the program will train it to play more intelligently while taking the player's previous inputs into consideration. If someone plays the game with a specific pattern, the program is intended to analyze the given pattern and use it to make future decisions in each of the rounds. 
+		
+	  <br>
+	  <br>
+	  
+	    <span class = "tab"></span> In addition to this, the program has to be able to discern the rules of Rock Paper Scissors, and map out any data or input that is sent by the user. This involves inputs and variables to keep track of scores, the number of each item played (rock, paper, or scissors), the name of the player, and the outcomes of each round and each outcome for the specific item played. Moreover, the program uses a Markov Dictionary that effectively changes the probability of the program's choices given the outcome of the last two rounds. To wrap everything up, the game also has an option to graph the data from the games of Rock Paper Scissors after the third round. This is all with the help from importing the modules from matplotlib's pyplot, numpy, and random.
+	</p></div>
+	</div>
+  
+<br>
+
+<ul class="headstyle-title" id="Use"> <b> How do I use the project? </b> </ul>
+	<p class="pstyle2-4"><span class = "tab"></span>The project will be run over Thonny, or any application that can run a python program. Upon pressing run, the program will begin to print out questions surrounding names, if you would like to play, and more. If these are responded to correctly and positively in the shell, then the program will continue to run the player through the game until the player decides to graph their results, concequently ending the program. The player will be able to interact through inputs, that can either be words or letters, with some leeway for capitalization. Any inputs will be specified by the program through printed text.
+	<br>
+	<br>
+	<span class = "tab"></span>Please note that if the wrong input is put in, the program will shut itself down to avoid an incorrect symbol being added to the Markov dictionary. It will subsequently exit the program and the player would have to start over.
+	</p>
+<br>
+
+	<ul class="headstyle-title" id="Work"> <b>How does this project work?</b> </ul>
+	<p class="pstyle2-2"> <span class="tab"> </span> As mentioned before, the project aims to play a game of rock paper scissors with the user. To do this, the program takes a series of inputs and commands from the user that allows them to advance on to the next round, play a given item, end the game, and even graph their plays and choices. The reason why this program is "slightly smarter" is because, rather than sticking to these inputs of data and information, it also adds on the data from the rounds that it plays against you. Given the outcome and last played item from the last round, the computer saves the opposite of your next input into the Markov Dictionary so that it can use the random.choice() command after evaluating the last thing that the user played and the last outcome.<br>
+	<br><span class="tab"> </span> To graph these results, the program uses the module matplotlib's pyplot in order to create a bar graph using various strings and data values that have been accumulated as the rounds go on. These are based on the player's input, of course, and are added as the player chooses Rock, Paper, or Scissors. In addition to this, numpy is also used in order to create an array and read a text file to make a stacked bar plot, with all of the starting values that were inputted into the Markov Dictionary. All of these elements, I feel, somewhat effectively incorporates some of the things that I found most fun in semester 2's computer science projects, of course, with a fun game aspect to it that makes it interactive and enjoyable to the user. This brings all of these ideas together into a game, composed of interesting probabilities, code, and math.</p>
+	
+	<p class="pstyle2-2"><span class="tab"> </span> Now! For the interesting part of this <i> (this claim may be disputed)</i>— the code! The following images will be shared with some captions or side text describing some of its uses. The code itself is broken down into "rounds" that separate each function and it's individual part in creating the program. Though the screenshots occasionally do not incorporate the entire round's code, it can still be viewed on the project's python file. They are just there to show a general idea of how each round works. </p>
+</body>
+
+<div class="container">
+  <div class="container-outline-grey-l"><img src="round0.png" style="width: 467px; height: 294px;">      </div>
+  
+  <div class="pstyle2" style="margin-left: 20px; margin-right: 50px;"><span class="tab"> </span> <b>To the left is Round 0: The Setup.</b> In this, the program creates most of the variables that it will be using to count the "rounds", collect some of the data necessary to build the graph, and above (not visible) is the importing of the modules random, numpy, and matplotlib.pyplot as plt. This also reads in the text file that is later used in round 6. At the end of this round, the program creates the introduction, which asks for your name and if you want to begin the next round.</div>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="pstyle2" style="margin-right: 20px; margin-left: 50px;"><span class="tab"> </span> <b>To the right is Round 1: The First Move.</b> In this, the rules of the game are described, and the first action is called— the player has to choose rock, paper, or scissors, which can be various inputs as long as they fall within the "viable" data that is described by the list. Upon receiving this "viable" data, the program is able to classify whether it's randomly chosen item from a list of probabilities will succeed or fail against the player. The results of this are all printed to a string, and reported to the player. Behind the scenes, this "rules" system also marks down the last thing the player played, the outcome, and other things later used for the graph. Although all of this round isn't included, the rest of it is simply just inputting values and their various outcomes— which can be viewed on the program. It's just too lengthy to take a screenshot of.</div>
+  <div class="container-outline-grey-r"><img src="round1-1.png" style="width: 575px; height: 261px;"> </div>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="container-outline-grey-l"><img src="round2.png" style="width: 536px; height: 281px;"></div>
+  <div class="pstyle2" style="margin-left: 20px; margin-right: 50px;"><span class="tab"> </span> <b>To the left is Round 2: Play Again?</b> This space is used to ask if the player would like to continue or stop, and it's also used to build the Markov Dictionary. Of course, the Markov Dictionary takes 9 different key inputs, dependent on the item played and the last outcome. Although no data can be used, the Markov Dictionary can begin to become of use in the future rounds.</div> 
+</div>
+
+<br>
+
+<div class="container">
+  <div class="pstyle2" style="margin-left: 50px; margin-right:20px;"><span class="tab"> </span> <b>To the right is Round 3: Things get Smarter.</b> This round is used to prep the program to be able to loop the program indefinitely. As we do not yet have all of the values needed to add to the Markov Dictionary, round 3 incorporates the Markov Dictionary and also begins to record keys, and archives information from two rounds ago as "lastlast" and "lastlastresult" for use in the next round. Besides this, the rules are again copy-and-pasted from round 1 to run this round.</div>
+  <div class="container-outline-grey-r"><img src="round3.png"  class="imgwrapr" style="width: 480px; height: 261px;"> </div>  
+</div>
+	
+<br>
+
+<div class="container-double-img">
+  <div class="container-light-border"><img src="round4-1.png" style="width: 462px; height: 293px;"> </div>
+  <div class="container-light-border"><img src="round4-2.png" style="width: 423px; height: 217px;"> </div> 
+</div>
+	
+
+	<p class="pstyle2-1"> 
+	<span class="tab"> </span> <b>Above is Round 4: The Loop.</b> This round is where the game can last indefinitely— the player can continue to play the game as long as their inputs are right, and the program effectively manages to add information to the Markov Dictionary and pull information from it without too much of a hassle. Every time a new round starts, the player is prompted with an input to either continue playing, stop the program, or graph their results. The request based on this input will be accepted, and will either continue, stop, or advance this program. This is also where the big part of some form of Machine Learning takes place. By adding on information and trying to "teach" this program any patterns in the player's outputs, the program is technically learning on its own.
+</p>
+<br>
+
+<div class="container">
+  <div class="container-outline-grey-l"><img src="round5.png" style="width: 513px; height: 251px;"> </div>
+  <div class="pstyle2" style="margin-left: 20px; margin-right: 50px;"><span class="tab"> </span> <b> To the left is Round 5: The Graphing.</b> Although this isn't the full screenshot, I'm sure that the message is conveyed— this sums up all of the information that we had left open in round 0 and added to throughout the game. This again uses an input to request different graphs and information in the form of bar graphs created by Pyplot. This scales from 0-100, and has been modified to count by percent, making it scale off of the times that it was chosen as a whole. Different sets of data can be graphed, including choices, results from playing a certain item, and wins/loss/ties ratios. They can all be requested too, as long as they are spaced apart.</div>
+
+</div>
+
+<div class="container">
+	<div class="pstyle2" style="margin-left: 50px; margin-right: 20px;">
+	<span class="tab"> </span> <b> To the right is Round 6: The original data set.</b> Although there is no user input here, the program reads in the file based on the statistical data mentioned in the "Online Resources" portion of this website. In reading this file in, the program uses numpy and pyplot to create a stacked barplot, as shown below, based on the data. Some of the data doesn't exacty add up to 100, which is something notable while covering the statistics of the computer actually choosing a choice— how accurate is this to the actual numbers of Justin Collier's data?
+	</div>
+	<div class="container-outline-grey-r"><img src="round6.png" style="width: 482px; height: 218px;"></div>
+</div>
+
+<br>
+
+<div class="container-double-img">
+	<img class="container-light-border" src="round6barplot.png" style="width: 517px; 	height: 351px;">
+</div>
+
+<ul class="headstyle-title" id="Files"> <b> The Files </b> </ul>
+
+	<p class="pstyle2-1"> 
+	final.html: This html file
+	<br>
+	<br>
+	Python_Project.py: The python file that runs the rock paper scissors program, Markov Dictionary, and the graphing.
+	<br>
+	<br>
+	rpsdataset.txt: The text file that the Python Project will be reading through for the original statistics graph.
+	<br>
+	<br>
+	Anything labeled (roundx-y.png): these will be screenshots of the program. They are not properly organized and can vary from round0-round6.
+	<br>
+	<br>
+	rpsdata.png & rpsdata0.png: Two photos that are used in the Statistics/Online resources part of this website.
+	<br>
+	<br>
+	rpswheel.png & rps.png: These two are the photos used at the top of this website, mentioned again in online resources.
+	</p>
+
+<br>
+
+<ul class="headstyle-title" id="Resources"> <b> Online Resources and Statistics </b> </ul>
+
+	  <p class="pstyle1"> 
+	  <span class="tab"></span>Concerning modules: besides the mentioned matplotlib.pyplot and random, numpy was also used. In this case, numpy was just used to simplify data for round 6, and it was used to create an array to build a figure, which is used in simplifying the creation of the stacked bar plot effect.
+	  <br> 
+	  <span class="tab"></span>To quickly describe <a href="https://numpy.org/doc/stable/contents.html">Numpy</a>, it's a module/package used for scientific computing, with a library that provides the ability to make arrays, matrices, and many other mathematical, logical, sorting, selecting, and shape manupulating functions. It can handle basic linear algebra, statistical simulation, random simulation, and much more, but we're just gonna be using it to make arrays to build our stacked plot figure.
+      </p>
+
+<img src="rpsdata.png" class="center" style="width: 759px; height: 213px;">
+
+<br>
+
+<div class="container-1">
+  	 <div>
+	  <p class="pstyle1"> 
+      <span class="tab"></span> Now to talk about statistics— using the website <a href="https://justincollier.com/life-hacks/how-to-win-rock-paper-scissors/"> How To Win At Rock Paper Scissors (Using Data From 120,000 Games)</a> by Justin Collier, I used data such as the spreadsheet above and the statistics from the image to the right to create a Markov Dictionary that serves as a starting point for the computer just so that it doesn't select anything with pure randomness. Using these statistics, the dictionary then accounts for 2 different things: the last item played and the outcome— this is used to classify the likeliness of the next item that a person will play, which will determine the program's next semi-random choice. For more on the program, see <a href="./final.html#Work"><b> How does this project work?</b></a> </p>
+	 <p class="pstyle1"> 
+     <span class="tab"></span> In this respect, the images used were used from <a  href="https://en.wikipedia.org/wiki/Rock_paper_scissors"> Playworks's Rock, Paper, Scissors Tournament</a>, and <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors"> Wikipedia's Rock Paper Scissors article</a> in the respective order that the first and second images were presented on the home page.
+     </p>
+ 	</div>
+
+	 <div><img src="rpsdata0.png" class="imgwrapr" style="width: 401px; height: 245px; 	 border: 0.1px solid #1F2B36; margin-right: 50px"></div> 
+  
+</div> 
+
+<br>
+
+<ul class="headstyle-title" id="Bugs"> <b> Bugs, Errors, Mishaps, and Things to Be Known </b> </ul>
+	<ul class="pstyle1">
+		<li>Any input must not stray from the input specified by the program, or else it will end itself.</li>
+		<br>
+		<li>The original data doesn't add exactly to 100 in some cases, as the website that the statistics are based off of didn't provide numbers that added up to 100%.</li>
+	</ul>
+<br>
+	
+</body>
+
+</html>
