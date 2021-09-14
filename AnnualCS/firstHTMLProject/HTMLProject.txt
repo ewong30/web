@@ -1,0 +1,3 @@
+Hi! As mentioned all of this stuff is newly uploaded, and this contains the mid-second semester project to test
+our use of HTML. All of it details the SDGs, a UN humanitarian thing I'm interested in, with some styling and coloring choices
+that generally just test the waters of HTML before the final project.
